@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const https = require("https");
+const { time } = require("console");
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -25,15 +26,34 @@ app.post("/", (req, res) => {
     try {
       response.on("data", function (data) {
         const weatherData = JSON.parse(data);
-        const temp = Math.round(weatherData.main.temp);
+        const days = [
+          "Sanday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+
+        const temp = weatherData.main.temp;
         const weatherDescription = weatherData.weather[0].description;
         const city = weatherData.name;
         const icon = weatherData.weather[0].icon;
-        const imageURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        const date = new Date();
+        const today = days[date.getDay()];
+        const currentDate = String(date).slice(4, 15);
+        const time = String(date).slice(16, 21);
+
+        const imageURL = `images/icons/${icon}.png`;
         res.render("index", {
           temp: temp,
           cityName: city,
+          imageURL: imageURL,
           weatherDescription: weatherDescription,
+          today: today,
+          date: currentDate,
+          time: time,
         });
       });
     } catch (error) {
