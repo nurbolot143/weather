@@ -22,8 +22,7 @@ app.post("/", (req, res) => {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=${unit}`;
   https.get(url, function (response) {
     console.log(response.statusCode);
-
-    if (response.statusCode == 200) {
+    try {
       response.on("data", function (data) {
         const weatherData = JSON.parse(data);
         const temp = Math.round(weatherData.main.temp);
@@ -37,7 +36,7 @@ app.post("/", (req, res) => {
           weatherDescription: weatherDescription,
         });
       });
-    } else {
+    } catch (error) {
       res.render("index");
     }
   });

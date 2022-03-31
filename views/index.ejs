@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="weather">
-      <div class="weather__body">
+      <div class="weather__form">
         <form action="/" method="post">
           <div class="input__wrapper">
             <input
@@ -29,7 +29,7 @@
                 width="30px"
                 height="30px"
                 viewBox="0 0 620.692 620.692"
-                fill="aqua"
+                fill="#fff"
               >
                 <g id="Search_1_">
                   <g>
@@ -47,12 +47,16 @@
             </button>
           </div>
         </form>
+      </div>
 
-        <h1><%=temp%></h1>
-        <h3><%=cityName%></h3>
-        <h3><%=weatherDescription%></h3>
+      <div class="weather__body">
+        <div class="sity"><%=cityName%></div>
+        <div class="temp__wrapper">
+          <div class="temp"><%=temp%> <span>&#176;</span></div>
+          <div class="image"></div>
+        </div>
 
-        <img src="" alt="" />
+        <div class="description"><%=weatherDescription%></div>
       </div>
     </div>
 
