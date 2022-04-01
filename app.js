@@ -40,7 +40,9 @@ app.post("/", (req, res) => {
         const weatherDescription = weatherData.weather[0].description;
         const city = weatherData.name;
         const icon = weatherData.weather[0].icon;
-        const date = new Date();
+        const date = new Date(
+          (weatherData.dt + weatherData.timezone - 10800) * 1000
+        );
         const today = days[date.getDay()];
         const currentDate = String(date).slice(4, 15);
         const time = String(date).slice(16, 21);
