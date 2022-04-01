@@ -7,7 +7,7 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background: url("../images/bg_image.jpg") center/cover no-repeat;
   overflow: hidden;
@@ -131,7 +131,6 @@ img {
   position: relative;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .temp {
@@ -142,7 +141,9 @@ img {
 
 .description {
   font-size: 27px;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .city {
@@ -189,9 +190,22 @@ footer::after {
   z-index: -1;
 }
 
-@media (max-width: 374px) {
+@media (max-width: 386px) {
+  .weather {
+    margin-top: 20px;
+  }
   .image {
     width: 120px;
     height: 120px;
+  }
+
+  .temp__wrapper {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 292px) {
+  .date__body {
+    grid-template-columns: 1fr;
   }
 }
