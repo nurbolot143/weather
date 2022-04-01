@@ -9,7 +9,7 @@
 body {
   height: 100vh;
   width: 100vw;
-  background: url("../images/bg_image2.jpg") center/cover no-repeat;
+  background: url("../images/bg_image.jpg") center/cover no-repeat;
   overflow: hidden;
   display: flex;
   flex-direction: column;
