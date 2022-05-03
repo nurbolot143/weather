@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const https = require("https");
-const { time } = require("console");
 const app = express();
 
 const port = process.env.PORT || 3000;
